@@ -1,8 +1,12 @@
-body{
-    font-family: Arial, Helvetica, sans-serif;
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif; /* Apply Poppins globally */
     background-color: #f9f9f9;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h4, p, button {
+    font-family: 'Poppins', sans-serif; /* Ensure headings, buttons, and paragraphs also use Poppins */
 }
 .container{
     max-width: 1000px;/*the max width of content*/
@@ -11,45 +15,80 @@ body{
     transition: 0.5s;
 }
 
-header{
-    display: grid;
-    grid-template-columns: auto 50px;/* the right part is 50px left part take up the rest*/
-    align-items: center;
+header {
+    display: flex; /* Use flexbox for better control */
+    justify-content: space-between; /* Space out h1, nav, and shopping cart */
+    align-items: center; /* Align items vertically */
     margin-top: 50px;
-   
-    
 }
-h1{
-    font-size: 2rem;/*2time the root element fons size*/
-    color:darkviolet;
+h1 {
+    font-size: 2rem; /* Ensure size consistency */
+    color: darkviolet;
+    margin: 0;
+    margin-right: 200px; /* Remove unnecessary default margin */
 }
+.navbar {
+    display: flex; /* Ensures flex layout */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-grow: 1; /* Allow navbar to take up available space */
+}
+
+.nav-list {
+    list-style: none; /* Remove bullets */
+    display: flex; /* Flex layout for list items */
+    gap: 20px; /* Spacing between list items */
+    margin-right: 25px; /* Reset default margin */
+    padding: 0; /* Reset default padding */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Align items vertically */
+}
+
+.nav-list li {
+    display: inline; /* Ensure inline layout */
+}
+
+.nav-list a {
+    text-decoration: none; /* Remove underline from links */
+    color: darkviolet; /* Link color */
+    font-weight: 500; /* Medium weight for visibility */
+    transition: color 0.3s ease-in-out; /* Smooth hover effect */
+}
+
+.nav-list a:hover {
+    color: rgb(255, 0, 204); /* Pink on hover */
+}
+
+
 .shopping {
+    display: flex;
+    align-items: center;
     position: relative;
-    text-align: right;
-  }
+}
 
 
-  .shopping-icon{
-    font-size: 2rem ;
+.shopping-icon {
+    font-size: 2rem;
     cursor: pointer;
     transition: color 0.25s;
 }
-.shopping-icon:hover{
-    color:rgb(255, 0, 204);
+
+.shopping-icon:hover {
+    color: rgb(255, 0, 204);
 }
-.quantity{
+.quantity {
     position: absolute;
-  top: -12px;
-  right: -15px;
-  background: rgb(214, 136, 216); /* Red background for the cart quantity */
-  color: white;
-  width: 20px;
-  height: 20px;
-  border-radius: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 0.8rem;
+    top: -12px;
+    right: -15px;
+    background: rgb(214, 136, 216);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Perfect circle */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
 }
     /***********************Style the product list***********************/
     .list{
@@ -177,3 +216,42 @@ h1{
     font-size: 1rem;
     font-weight: bold;
   }
+  .item h4 {
+    color: hwb(271 12% 56%); /* Light purple for shoe name */
+    font-weight: 600; /* Optional: make it bold for better visibility */
+}
+
+.item p {
+    color: hwb(271 12% 56%); /* Light purple for shoe description */
+    font-weight: 500; /* Slightly less bold than the title */
+}
+.navbar {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    font-size: 1rem;
+    margin-right: auto;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    display: inline;
+}
+
+.nav-list a {
+    text-decoration: none;
+    color: darkviolet;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-list a:hover {
+    color: rgb(255, 0, 204); /* Pink on hover */
+}
