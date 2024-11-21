@@ -17,7 +17,7 @@
                     <ul class="nav-list">
                         <li><a href="#home">Home</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="#search">Search</a></li>
+                        <li><a href="javascript:void(0);" id="search-link">Search</a></li>
                     </ul>
                 </nav>
                 <div class="shopping">
@@ -25,6 +25,26 @@
                     <span class="quantity">0</span>
                 </div>
             </header>
+            
+            <!-- Hidden search modal -->
+            <div id="search-modal" class="search-modal">
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search products..." />
+                    <button id="search-button">Search</button>
+                    <button id="close-search">Close</button>
+                </div>
+            </div>
+            <div id="search-modal" class="search-modal">
+                <div class="search-container">
+                    <input type="text" id="search-bar" placeholder="Search products..." />
+                    <button id="search-button">Search</button>
+                    <button id="close-search">Close</button>
+                </div>
+            </div>
+            <div class="list">
+                <!--the items list will be added here with javascript-->
+            </div>
+            
             
             <div class="list">
                 <!--the items list will be added here with javascript-->

@@ -134,3 +134,53 @@ document.querySelector('.shopping').addEventListener('click', () => {
 closeCartButton.addEventListener('click', () => {
     cart.classList.remove('active');  // Hide the cart when the close button is clicked
 });
+/*************** */
+const searchLink = document.getElementById('search-link');
+const searchModal = document.getElementById('search-modal');
+const searchBar = document.getElementById('search-bar');
+const searchButton = document.getElementById('search-button');
+const closeSearchButton = document.getElementById('close-search');
+
+// Show the search modal when the search link is clicked
+searchLink.addEventListener('click', () => {
+    searchModal.style.display = 'flex'; // Show the modal
+});
+
+// Close the search modal when the close button is clicked
+closeSearchButton.addEventListener('click', () => {
+    searchModal.style.display = 'none'; // Hide the modal
+});
+
+// Search functionality when the search button is clicked
+searchButton.addEventListener('click', () => {
+    const searchTerm = searchBar.value.toLowerCase(); // Get user input and convert to lowercase
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(searchTerm) // Check if the product name contains the search term
+    );
+
+    displayProducts(filteredProducts); // Update the product list with filtered products
+    searchModal.style.display = 'none'; // Close the search modal after searching
+});
+
+// Function to display products (called in initApp and after filtering)
+function displayProducts(productList) {
+    list.innerHTML = ''; // Clear the product list
+    productList.forEach(product => {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        item.innerHTML = `
+            <img src="${product.image}" alt="${product.name}">
+            <h4>${product.name}</h4>
+            <p>$${product.price.toLocaleString()}</p>
+            <button onclick="addToCart(${product.id})">Add to Cart</button>
+        `;
+        list.appendChild(item);
+    });
+}
+
+// Modify initApp to use displayProducts
+function initApp() {
+    displayProducts(products); // Display all products initially
+}
+
+initApp();
